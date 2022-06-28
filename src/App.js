@@ -1,25 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import books from './books.json';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  const array = books;
+  
+
+
+  return (
+
+    <div className="App">
+      {array.map(book => {
+        const {author,description, pages, title, isbn} = book
+        {console.log(description)}
+        return (
+          <div key={isbn}>
+            <h1>{author}</h1>
+            <p>{title}</p>
+            <p>{pages}</p>
+            <p>{description}</p>
+
+          </div>
+        )
+      })}
+
+    </div>
+
+  );
+
+
+
+}
 export default App;
